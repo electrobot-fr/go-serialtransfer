@@ -38,7 +38,7 @@ func main() {
 	}
 	defer serialPort.Close()
 
-	if false {
+	if os.Args[3] == "read" {
 		if err := runReader(serialPort); err != nil {
 			logrus.Fatal(err)
 		}

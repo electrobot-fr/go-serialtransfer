@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"io"
 
 	"github.com/electrobot-fr/go-serialtransfer"
@@ -17,7 +18,8 @@ func runReader(serialPort serial.Port) error {
 			break
 		}
 		if err != nil {
-			return err
+			logrus.Error(err)
+			continue
 		}
 		fmt.Printf("%+v\n", msg)
 	}
